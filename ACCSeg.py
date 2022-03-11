@@ -189,7 +189,10 @@ def main():
             
             #it's actually faster to do it with this multi version than individually
             #this is why all of the individual segmentation steps are grayed out above
-            comboROIBool=wmaPyTools.segmentationTools.segmentTractMultiROI(streamlines, [inflatedACC,targetSpineLocations,contraWMROI,sfgROI,supCCparaCantBorder,supPostCCBorder,antCingBorderROI,latPostPalBorder], [True,True,False,False,False,False,False,False], ['any','either_end','any','either_end','any','any','any','any'])
+            comboROIBool=wmaPyTools.segmentationTools.segmentTractMultiROI(streamlines, 
+                [inflatedACC,targetSpineLocations,contraWMROI,sfgROI,supCCparaCantBorder,supPostCCBorder,antCingBorderROI,latPostPalBorder], 
+                [True,True,False,False,False,False,False,False], 
+                ['any','either_end','any','either_end','any','any','any','any'])
             print('multi seg complete')
             #saves the output tractogram
             wmaPyTools.streamlineTools.stubbornSaveTractogram(streamlines[comboROIBool],os.path.join(outDir,tractName+'.trk'))
